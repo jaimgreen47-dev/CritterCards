@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Listings - CritterCard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🐄 CritterCard</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/buyer">Browse</a>
+                <a href="/seller">Sell</a>
+                <button id="userBtn" class="btn-primary">Account</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Available Livestock</h1>
+        
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search animals...">
+            <select id="breedFilter">
+                <option value="">All Breeds</option>
+                <option value="Dexter">Dexter</option>
+                <option value="Angus">Angus</option>
+                <option value="Hereford">Hereford</option>
+            </select>
+        </div>
+
+        <div id="listingsGrid" class="grid">
+            <!-- Listings will load here -->
+        </div>
+    </div>
+
+    <!-- Listing Detail Modal -->
+    <div id="listingModal" class="modal" style="display:none;">
+        <div class="modal-content listing-detail">
+            <span class="close" onclick="closeListingModal()">&times;</span>
+            <div id="listingDetail"></div>
+            <button class="btn-primary" onclick="startCheckout()">Purchase with Deposit</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal" style="display:none;">
+        <div class="modal-content checkout-form">
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2>Secure Deposit Payment</h2>
+            <form id="checkoutForm">
+                <div id="card-element"></div>
+                <input type="number" id="depositAmount" placeholder="Deposit Amount ($)" step="0.01" required>
+                <button type="submit" class="btn-primary">Complete Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/stripe-checkout.js"></script>
+    <script src="/js/buyer-marketplace.js"></script>
+</body>
+</html>
