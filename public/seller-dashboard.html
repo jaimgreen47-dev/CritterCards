@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - CritterCard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🐄 CritterCard</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/buyer">Browse</a>
+                <a href="/seller">Dashboard</a>
+                <button id="userBtn" class="btn-primary">Account</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Seller Dashboard</h1>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <h3>Total Sales</h3>
+                <p id="totalSales" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Revenue</h3>
+                <p id="totalRevenue" class="stat-value">$0.00</p>
+            </div>
+            <div class="stat-card">
+                <h3>Active Listings</h3>
+                <p id="activeListings" class="stat-value">0</p>
+            </div>
+        </div>
+
+        <h2>Your Listings</h2>
+        <button class="btn-primary" onclick="openListingForm()">+ Create New Listing</button>
+
+        <div id="listingsTable" class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Animal</th>
+                        <th>Breed</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="listingsBody">
+                    <!-- Listings will load here -->
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Recent Sales</h2>
+        <div id="salesTable" class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Animal</th>
+                        <th>Buyer</th>
+                        <th>Amount</th>
+                        <th>Commission (15%)</th>
+                        <th>You Earn</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="salesBody">
+                    <!-- Sales will load here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Listing Form Modal -->
+    <div id="listingFormModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeListingForm()">&times;</span>
+            <h2>Create New Listing</h2>
+            <form id="listingForm">
+                <input type="text" placeholder="Animal Name" id="animalName" required>
+                <input type="text" placeholder="Breed" id="breed" required>
+                <input type="text" placeholder="Age" id="age" required>
+                <input type="text" placeholder="Height" id="height">
+                <input type="text" placeholder="Temperament" id="temperament">
+                <input type="number" placeholder="Price ($)" id="price" step="0.01" required>
+                <textarea placeholder="Description" id="description" rows="5"></textarea>
+                <input type="text" placeholder="Location" id="location">
+                <button type="submit" class="btn-primary">Create Listing</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/seller-dashboard.js"></script>
+</body>
+</html>
