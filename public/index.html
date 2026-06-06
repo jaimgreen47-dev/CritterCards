@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CritterCard - Livestock Marketplace</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🐄 CritterCard</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/buyer">Browse Animals</a>
+                <button id="authBtn" class="btn-primary">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Welcome to CritterCard</h1>
+        <p>The modern marketplace for buying and selling livestock</p>
+        <a href="/buyer" class="btn-large">Browse Listings</a>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h3>🛒 For Buyers</h3>
+                <p>Browse quality livestock from trusted sellers. Secure checkout with Stripe payments.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 For Sellers</h3>
+                <p>List your animals to thousands of buyers. Track sales and earnings in real-time.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💳 Secure Payments</h3>
+                <p>15% commission on sales. Industry-leading payment processing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <div id="loginTab" class="tab-content active">
+                <form id="loginForm">
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+            </div>
+
+            <div id="registerTab" class="tab-content" style="display:none;">
+                <form id="registerForm">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <select required>
+                        <option value="">Select Account Type</option>
+                        <option value="buyer">Buyer</option>
+                        <option value="seller">Seller</option>
+                    </select>
+                    <button type="submit" class="btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
